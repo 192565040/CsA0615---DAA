@@ -1,0 +1,26 @@
+
+
+# Iterative Method
+def power_iterative(x, n):
+    result = 1
+    for i in range(n):
+        result *= x
+    return result
+
+# Recursive Fast Power Method
+def power_recursive(x, n):
+    if n == 0:
+        return 1
+    if n % 2 == 0:
+        half = power_recursive(x, n // 2)
+        return half * half
+    else:
+        return x * power_recursive(x, n - 1)
+
+# Get input from the user
+x = int(input("Enter the base (x): "))
+n = int(input("Enter the exponent (n): "))
+
+# Display results
+print("Iterative Power:", power_iterative(x, n))
+print("Recursive Fast Power:", power_recursive(x, n))
