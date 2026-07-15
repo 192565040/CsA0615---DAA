@@ -1,0 +1,24 @@
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        left = [x for x in arr[1:] if x <= pivot]
+        right = [x for x in arr[1:] if x > pivot]
+
+        return quick_sort(left) + [pivot] + quick_sort(right)
+
+# Get input from the user
+n = int(input("Enter the number of elements: "))
+
+arr = []
+print("Enter the elements:")
+for i in range(n):
+    arr.append(int(input()))
+
+print("Original Array:", arr)
+
+sorted_arr = quick_sort(arr)
+
+print("Sorted Array:", sorted_arr)
