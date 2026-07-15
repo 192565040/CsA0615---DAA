@@ -1,0 +1,32 @@
+# Experiment 2: Binary Search (Recursive)
+
+def binary_search(arr, low, high, key):
+    if low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == key:
+            return mid
+        elif arr[mid] > key:
+            return binary_search(arr, low, mid - 1, key)
+        else:
+            return binary_search(arr, mid + 1, high, key)
+
+    return -1
+
+# Get input from the user
+n = int(input("Enter the number of elements: "))
+
+arr = []
+print("Enter the elements in sorted order:")
+for i in range(n):
+    arr.append(int(input()))
+
+key = int(input("Enter the key to search: "))
+
+# Function call
+result = binary_search(arr, 0, n - 1, key)
+
+if result != -1:
+    print("Key found at index", result)
+else:
+    print("Key not found")
